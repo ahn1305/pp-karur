@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<a href="{% url 'admin:index' %}">
+<button class="btn btn-outline-info" onclick="this.disabled=true;this.value='Submitting...'; this.form.submit();" type=submit>Go to admin</button>
+</a>
+
 {% endblock content %}

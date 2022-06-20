@@ -10,6 +10,7 @@ django-3-jet = "*"
 django-admin-rangefilter = "*"
 pillow = "*"
 pendulum = "*"
+django-extensions = "*"
 
 [dev-packages]
 

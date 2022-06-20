@@ -13,6 +13,7 @@ sphinx = "*"
 pip-autoremove = "*"
 django-sphinx = "*"
 django-crispy-forms = "*"
+django-extensions = "*"
 
 [dev-packages]
 

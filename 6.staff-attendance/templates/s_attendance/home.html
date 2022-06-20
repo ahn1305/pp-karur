@@ -24,20 +24,15 @@
 	<br>
 	<h1>Welcome {{ request.user.username }}</h1>
 
-	{% comment %} <a href = "{% url 'dr' %}"
-	<button class="btn btn-info btn-lg"><b>&nbsp;Daily Report</b></button>
-  </a>
+  <a href = "{% url 'mr' %}">
+  <button class="btn btn-info btn-lg"><b>&nbsp;Monthly Report</b></button>
+</a> 
 
-  <a href = "{% url 'mr' %}"
-	<button class="btn btn-info btn-lg"><b>&nbsp;Monthly Report</b></button>
-  </a>
+  <a href = "{% url 'admin:index' %}">
+  <button class="btn btn-info btn-lg"><b>&nbsp;Admin</b></button>
+</a> 
 
-  <a href = "{% url 'sr' %}"
-  <button class="btn btn-info btn-lg"><b>&nbsp;Semester Report</b></button>
-</a> {% endcomment %}
-
-
-  <a href = "{% url 'admin:logout' %}"
+  <a href = "{% url 'admin:logout' %}">
 	<button class="btn btn-info btn-lg"><b>&nbsp;logout</b></button>
   </a>
 	

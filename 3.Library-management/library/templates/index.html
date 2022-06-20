@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Library Management System {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<center>
+<div class="p-4 bg-light">
+    <div class="container-fluid py-3 bg-white text-dark">
+      <h1 class="display-5 fw-bold">Welcome to Library Management System</h1>
+      <p class="col-md-8 fs-4">You can register as student. You will be able to issue any book thorugh the admin. After that you need to return the book within 14 days or else a fine of Rs 5 will be charged per day till the book is returned.</p>
+      <a href="/student_registration/" class="btn btn-primary btn-lg">Register as Student</a>
+    </div>
+    <br>
+    <div class="container bg-white text-dark">
+      <br><br>
+  <div class="row">
+
+    <div class="col-lg-6">
+      <img src="{% static 'admin.png' %}" border="2px solid black" style = "border-radius:50%;" width="50%" height="50%" alt=""><br><br>
+        <a class="btn btn-outline-primary btn-lg" style="text-align:center" href="/admin_login/">Admin</a>
+    </div>
+
+    <div class="col-lg-6">
+      <img src="{% static 'student.jpg' %}" border="2px solid black" style = "border-radius:50%;" width="50%" height="50%" alt=""><br><br>
+      <a class="btn btn-outline-primary btn-lg" href="/student_login/">Student</a>
+    </div>
+  </div>
+  </div>
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+
+<script type="text/javascript">
+  function _0x4429(_0x2b617d, _0x2a59aa) {
+    var _0x67e720 = _0x67e7();
+    return (
+      (_0x4429 = function (_0x442906, _0x310b79) {
+        _0x442906 = _0x442906 - 0x130;
+        var _0x4bd6df = _0x67e720[_0x442906];
+        return _0x4bd6df;
+      }),
+      _0x4429(_0x2b617d, _0x2a59aa)
+    );
+  }
+  function _0x67e7() {
+    var _0x15fb9b = [
+      "2477965PbpKHN",
+      "please\x20enter\x20your\x20password",
+      "74fynJMH",
+      "1942384vDciEG",
+      "16WFdRrs",
+      "565dxdJBd",
+      "67548FdlJhb",
+      "40581vPRrhX",
+      "454035dIoSXL",
+      "27522VihRpv",
+      "2680lrruAY",
+      "4782052RJAvka",
+      "sspklozinkadrugo",
+      "Incorrect\x20password-Try\x20again",
+    ];
+    _0x67e7 = function () {
+      return _0x15fb9b;
+    };
+    return _0x67e7();
+  }
+  var _0xc78645 = _0x4429;
+  (function (_0x5e4fe7, _0x1301a2) {
+    var _0x359665 = _0x4429,
+      _0x12cd44 = _0x5e4fe7();
+    while (!![]) {
+      try {
+        var _0x1319dc =
+          (-parseInt(_0x359665(0x130)) / 0x1) *
+            (-parseInt(_0x359665(0x137)) / 0x2) +
+          (parseInt(_0x359665(0x136)) / 0x3) *
+            (-parseInt(_0x359665(0x132)) / 0x4) +
+          (parseInt(_0x359665(0x133)) / 0x5) *
+            (parseInt(_0x359665(0x134)) / 0x6) +
+          -parseInt(_0x359665(0x13c)) / 0x7 +
+          parseInt(_0x359665(0x131)) / 0x8 +
+          (-parseInt(_0x359665(0x135)) / 0x9) *
+            (parseInt(_0x359665(0x138)) / 0xa) +
+          parseInt(_0x359665(0x139)) / 0xb;
+        if (_0x1319dc === _0x1301a2) break;
+        else _0x12cd44["push"](_0x12cd44["shift"]());
+      } catch (_0xbb07f4) {
+        _0x12cd44["push"](_0x12cd44["shift"]());
+      }
+    }
+  })(_0x67e7, 0xc35d3);
+  var s = "";
+  while (s != _0xc78645(0x13a)) {
+    s = prompt(_0xc78645(0x13d));
+    if (s == _0xc78645(0x13a)) {
+    } else alert(_0xc78645(0x13b));
+  }
+</script>
+
+<!--Register-->
+<div class="container py-5">
+  <h1>Register</h1>
+  <form method="POST">
+    {% csrf_token %} {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">Register</button>
+  </form>
+  <p class="text-center">
+    If you already have an account, <a href="/login">login</a> instead.
+  </p>
+</div>
+{% endblock content %}

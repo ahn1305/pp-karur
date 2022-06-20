@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="content">
+        <h1><b>SRI SARADA NIKETAN COLLEGE FOR WOMEN,KARUR.</b></h1>
+        <h3><b>Staff Profile Management</b></h3>
+        <hr style = "border:1px solid black;">
+        {% if not user.is_authenticated %}
+        <a href = "{% url 'admin:index' %}">
+        <button class="btn btn-info btn-lg"><i class="fa fa-sign-in"></i><b>&nbsp;Login</b></button>
+        </a>
+
+    <a href = "{% url 'register' %}">
+        <button class="btn btn-info btn-lg"><i class="fa fa-plus"></i><b>&nbsp;Register</b></button>
+        </a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <a href = "{% url 'admin:index' %}">
+        <button class="btn btn-info btn-lg"><i class="fa fa-user"></i><b>&nbsp;Admin</b></button>
+        </a>
+
+        <a href = "{% url 'admin:logout' %}">
+        <button class="btn btn-info btn-lg"><i class="fa fa-sign-out"></i><b>&nbsp;Logout</b></button>
+        </a>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content  %}
+

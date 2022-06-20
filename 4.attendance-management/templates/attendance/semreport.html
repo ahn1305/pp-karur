@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<br>
+<div class = "container bg-white text-dark">
+	<br>
+	<h2>Sem Report</h2>
+	<a href = {% url 'admin:index' %}>
+		<button class = 'btn btn-info'>Go to admin panel</button>
+	</a>
+	<br>
+	<br>
+
+	{% for message in messages %}
+	<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	  </button>
+	  {{ message }}
+	</div>
+  {% endfor %}
+
+	<form action = '/attendance/semreport/' method="POST" id="mar">
+
+
+		{% csrf_token %}
+
+
+		 <div class="form-group">
+			<label for="Student Select">Select Student</label>
+			<select class="form-control" id="ss" name="name">
+				<option selected>-----</option>
+				{% for i in asd %}
+			  <option>{{ i }}</option>
+			{% endfor %}
+			  
+			</select>
+		  </div>
+
+          <div class ='form-group'>
+            <label for="start-date">Start date</label>
+            <input type="date" class="form-control" id="sd" name="sdate" required>
+          </div>
+
+          <div class ='form-group'>
+            <label for="end-date">End date</label>
+            <input type="date" class="form-control" id="ed" name="edate" required>
+          </div>
+		
+		
+		<button type="submit" class="btn btn-primary">Get data</button>
+	  </form>
+
+	
+
+	<table class="table" id="srd">
+	
+		<thead class="thead-dark">
+		  <tr>
+			<th scope="col">S.NO</th>
+			<th scope="col">App No</th>
+			<th scope="col">Reg No</th>
+			<th scope="col">Name</th>
+			<th scope="col">TotalDays</th>
+			<th scope="col">No of days present</th>
+			<th scope="col">No of days absent</th>
+			<th scope="col">Attendance percentage</th>
+
+		  </tr>
+		</thead>
+		<tbody>
+	     <tr>
+			{% if mar or mara %}
+			<th scope="row">1</th>
+			{% endif %}
+			<td>{{ student.Application_Number }}</td>
+			<td>{{ student.Register_Number }}</td>
+			<td>{{ student.Name }}</td>
+			<td>{{ total_days }}</td>
+			<td>{{ mar }}</td>	
+			<td>{{ mara }}</td>	
+			<td>{{ percentage }}%</td>
+		 
+		  </tr> 
+		  
+		</tbody>
+	  </table>
+	  <br>
+	 
+
+
+
+	  {% if mar or mara %}
+	  <button class="btn btn-primary" onclick="window.location.href = window.location.href;">Clear data</button>
+	  <script>
+		$(document).ready(function () {
+			$('#srd').DataTable({
+				dom: 'lBfrtip',
+				searching: false,
+				paging: false,
+				ordering: false,
+  
+			  buttons: [
+				'copyHtml5',
+				'excelHtml5',
+				'csvHtml5',
+				'pdfHtml5'
+			  ]
+			});
+		  });
+	</script>
+
+	  <br>
+	  <br>
+	  {% endif %}
+
+
+
+</div>
+
+
+
+
+{% endblock content  %}

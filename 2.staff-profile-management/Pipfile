@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.0.8"
+pillow = "*"
+django-cleanup = "*"
+django-3-jet = "*"
+docutils = "*"
+sphinx = "*"
+pip-autoremove = "*"
+django-sphinx = "*"
+django-crispy-forms = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

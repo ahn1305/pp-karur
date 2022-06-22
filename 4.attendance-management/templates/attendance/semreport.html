@@ -79,7 +79,12 @@
 			<td>{{ total_days }}</td>
 			<td>{{ mar }}</td>	
 			<td>{{ mara }}</td>	
+			{% if percentage %}
 			<td>{{ percentage }}%</td>
+			{% else %}
+			<td>&#32;</td>
+			{% endif %}
+
 		 
 		  </tr> 
 		  
@@ -113,6 +118,12 @@
 	  <br>
 	  <br>
 	  {% endif %}
+
+	  <a href = "/">
+		<button class="btn btn-danger"> Back to home </button>
+	</a>
+
+	<br><br>
 
 
 

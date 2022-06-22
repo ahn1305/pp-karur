@@ -27,23 +27,27 @@
 {% if user.is_authenticated %}
 <center>
 	<br>
-	<h1>Welcome {{ request.user.username }}</h1>
+	<h1>Welcome {{ request.user.username }}</h1><br>
+
+	<a href = "{% url 'admin:index' %}"
+	<button class="btn btn-info btn-lg"><b><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Admin</b></button>
+  </a>
 
 	<a href = "{% url 'dr' %}"
-	<button class="btn btn-info btn-lg"><b>&nbsp;Daily Report</b></button>
+	<button class="btn btn-info btn-lg"><b><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Daily Report</b></button>
   </a>
 
   <a href = "{% url 'mr' %}"
-	<button class="btn btn-info btn-lg"><b>&nbsp;Monthly Report</b></button>
+	<button class="btn btn-info btn-lg"><b><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Monthly Report</b></button>
   </a>
 
   <a href = "{% url 'sr' %}"
-  <button class="btn btn-info btn-lg"><b>&nbsp;Semester Report</b></button>
+  <button class="btn btn-info btn-lg"><b><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Semester Report</b></button>
 </a>
 
 
   <a href = "{% url 'admin:logout' %}"
-	<button class="btn btn-info btn-lg"><b>&nbsp;logout</b></button>
+	<button class="btn btn-info btn-lg"><b><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;logout</b></button>
   </a>
 	
 </center>

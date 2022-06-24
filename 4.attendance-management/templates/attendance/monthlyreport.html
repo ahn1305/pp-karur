@@ -52,10 +52,21 @@
 			<th scope="col">TotalDays</th>
 			<th scope="col">No of days present</th>
 			<th scope="col">No of days absent</th>
-
 		  </tr>
 		</thead>
 		<tbody>
+		{% comment %} {% for i in data %}
+		  <tr>
+			<th>{{ forloop.counter }}</th>
+			<td>{{ i.2.Application_Number }}</td>
+			<td>{{ i.2.Register_Number }}</td>
+			<td>{{ i.2.Name }}</td>
+			<td>{{ num_days }}</td>
+			<td>{{ i.0 }}</td>	
+			<td>{{ i.1 }}</td>	
+		  </tr>
+		  {% endfor %} {% endcomment %}
+
 		  <tr>
 			{% if mar or mara %}
 			<th scope="row">1</th>
@@ -66,18 +77,16 @@
 			<td>{{ total_days }}</td>
 			<td>{{ mar }}</td>	
 			<td>{{ mara }}</td>	
-		 
 		  </tr>
-		  
 		</tbody>
 	  </table>
-	  <br>
+
+ <br>
 
 	  {% if mar or mara %}
 	  <button class="btn btn-primary" onclick="window.location.href = window.location.href;">Clear data</button>
 	  <br>
 	  <br>
-	  {% endif %}
 	  <script>
 		$(document).ready(function () {
 			$('#mrd').DataTable({
@@ -94,8 +103,9 @@
 			  ]
 			});
 		  });
-	</script>
-
+	</script> 
+	  {% endif %}
+	  
 	<a href = "/">
 		<button class="btn btn-danger"> Back to home </button>
 	</a>

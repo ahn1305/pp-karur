@@ -65,6 +65,13 @@
 		  </tr>
 		</thead>
 		<tbody>
+			{% comment %} {% for i in student %}
+			<tr>
+				
+				<th scope="row">{{ forloop.counter }}</th>
+				<td>{{ i }}</td>
+			{% endfor %}	   {% endcomment %}
+
 		  <tr>
 			{% for i in dar %}
 			<th scope="row">{{ forloop.counter }}</th>

@@ -1,6 +1,7 @@
 import calendar
 import datetime as dt
 from datetime import date, datetime
+import itertools
 from turtle import end_fill
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -46,16 +47,41 @@ def dailyreport(request):
     
 @login_required
 def monthlyreport(request):
+
+    def getalldata(st_name):
+        try:
+            sid = Student.objects.get(Name=st_name).id
+        except:
+            print("error")
+        
+        sid = Student.objects.get(Name=st_name).id
+        start_date = str(datetime.now().year)+"-"+str(currentMonth)+"-"+"01"
+
+        res = calendar.monthrange(datetime.now().year, currentMonth)[1]
+
+        end_date = str(datetime.now().year)+"-"+str(currentMonth)+"-"+str(res)
+
+        marp = Attendance.objects.filter(Student=sid,Present_or_Absent="Present").filter(Date__month__gte=currentMonth,Date__range=[start_date, end_date])
+        mara = Attendance.objects.filter(Student=sid,Present_or_Absent="Absent").filter(Date__month__gte=currentMonth)
+
+        return (marp.count(),mara.count(),Student.objects.get(Name=st_name))
+
+    
+
     sd = Student.objects.all()
+
+
     if request.method == "POST":
         query_dict = request.POST
         s_name = query_dict.get('name')
+
+        
 
         try:
             sc = Student.objects.get(Name=s_name)
         except ObjectDoesNotExist:
             messages.warning(request,"Student doesn't exist")
-            return redirect('dr')
+            return redirect('mr')
 
         s_id = Student.objects.get(Name=s_name).id
 
@@ -78,7 +104,14 @@ def monthlyreport(request):
             return redirect('mr')
 
     else:
-        context = {'asd':sd,}
+
+        sl = list(Student.objects.all())
+
+        data = []
+        for i in sl:
+            data.append(getalldata(i))
+
+        context={"asd":sd,"data":data,'num_days':num_days}
 
         return render(request, 'attendance/monthlyreport.html',context)
 
